@@ -83,8 +83,20 @@ function createSupport() {
 	scene.add( cube );
 
 	// right foot
+	cube = new THREE.Mesh(
+		new THREE.CubeGeometry( 20+64+110, 52, 6 ), cubeMaterial );
+	cube.position.x = -45;	// (20+32) + half of width (20+64+110)/2
+	cube.position.y = 52/2;	// half of height
+	cube.position.z = -(77 + 6/2);	// offset 77 + half of depth 6/2
+	scene.add( cube );
 
 	// right leg
+	cube = new THREE.Mesh(
+		new THREE.CubeGeometry( 64, 334+52, 6 ), cubeMaterial );
+	cube.position.x = 0;	// centered on origin along X
+	cube.position.y = (334+52)/2;
+	cube.position.z = -(77 + 6/2);	// offset 77 + half of depth 6/2
+	scene.add( cube );
 
 }
 
@@ -93,6 +105,20 @@ function createBody() {
 	var sphereMaterial = new THREE.MeshLambertMaterial( { color: 0xA00000 } );
 	var cylinderMaterial = new THREE.MeshLambertMaterial( { color: 0x0000D0 } );
 
+	var sphere;
+	sphere = new THREE.Mesh(
+		new THREE.SphereGeometry( 58, 32, 16 ), sphereMaterial );
+	sphere.position.x = 0;
+	sphere.position.y = 160;
+	scene.add( sphere );
+
+	var cylinder;
+	cylinder = new THREE.Mesh(
+		new THREE.CylinderGeometry( 12, 12, 390 , 32 ), cylinderMaterial );
+	cylinder.position.x = 0;
+	cylinder.position.y = 160 + 390/2;
+	cylinder.position.z = 0;
+	scene.add( cylinder );
 }
 
 // Head of the bird - head + hat
@@ -100,6 +126,28 @@ function createHead() {
 	var sphereMaterial = new THREE.MeshLambertMaterial( { color: 0xA00000 } );
 	var cylinderMaterial = new THREE.MeshLambertMaterial( { color: 0x0000D0 } );
 
+	var sphere;
+	sphere = new THREE.Mesh(
+		new THREE.SphereGeometry( 52, 32, 16 ), sphereMaterial );
+	sphere.position.x = 0;
+	sphere.position.y = 160 + 390;
+	scene.add( sphere );
+
+	var cylinder;
+	cylinder = new THREE.Mesh(
+		new THREE.CylinderGeometry( 71, 71, 10 , 32 ), cylinderMaterial );
+	cylinder.position.x = 0;
+	cylinder.position.y = 160 + 390 + 40 + 10/2;
+	cylinder.position.z = 0;
+	scene.add( cylinder );
+
+	var cylinder;
+	cylinder = new THREE.Mesh(
+		new THREE.CylinderGeometry( 40, 40, 70 , 32 ), cylinderMaterial );
+	cylinder.position.x = 0;
+	cylinder.position.y = 160 + 390 + 40 + 10 + 70/2;
+	cylinder.position.z = 0;
+	scene.add( cylinder );	
 }
 
 function createDrinkingBird() {
