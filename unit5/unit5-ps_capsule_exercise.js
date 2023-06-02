@@ -65,9 +65,7 @@ function createCapsule( material, radius, top, bottom, segmentsWidth, openTop, o
 		}
 	}
 
-	// You'll probably want to return something other than this...
 	return capsule;
-
 }
 
 // Transform cylinder to align with given axis and then move to center

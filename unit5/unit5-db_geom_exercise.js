@@ -175,6 +175,35 @@ function createDrinkingBird() {
 	//   THREE.SphereGeometry( XX, 32, 16 ) for the tessellation.
 	//   Each sphere should have radius of 10 and be moved to X=-48, Y=560,
 	//   then rotated 20 degrees left and right to make a pair.
+	
+	// Crossbar
+	cylinder = new THREE.Mesh(new THREE.CylinderGeometry(5, 5, 200, 32), crossbarMaterial);
+	cylinder.position.set(0, 360, 0);
+	cylinder.rotation.set(Math.PI/2, 0, 0);
+	scene.add(cylinder);
+
+	// Nose
+	cylinder = new THREE.Mesh(new THREE.CylinderGeometry(6, 14, 70, 32), headMaterial);
+	cylinder.position.set(-70, 530, 0);
+	cylinder.rotation.set(0, 0, Math.PI/2);
+	scene.add(cylinder);
+	
+	// Eyes
+	var sphGeom = new THREE.SphereGeometry(10, 32, 16);
+	// left
+	sphere = new THREE.Mesh(sphGeom, eyeMaterial);
+	sphere.position.set(-48, 560, 0);
+	var eye = new THREE.Object3D();
+	eye.rotation.set(0, Math.PI/9, 0);
+	eye.add(sphere);
+	scene.add(eye);
+	//right
+	sphere = new THREE.Mesh(sphGeom, eyeMaterial);
+	sphere.position.set(-48, 560, 0);
+	eye = new THREE.Object3D();
+	eye.rotation.set(0, -Math.PI/9, 0)
+	eye.add(sphere);
+	scene.add(eye);
 }
 
 function fillScene() {
